@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PracticaDI.MVVM.Views.MainPage">
+    <StackLayout Padding="20">
+        <Label Text="Lista de Tareas" FontSize="24" HorizontalOptions="Center" />
+        <ListView ItemsSource="{Binding Tareas}"
+                  SelectedItem="{Binding TareaSeleccionada}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <CheckBox IsChecked="{Binding Completada}" />
+                            <Label Text="{Binding Nombre}" VerticalOptions="Center" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Agregar tarea" Command="{Binding AgregarTareaCommand}" BackgroundColor="Blue" VerticalOptions="Center" Margin="5"/>
+        <Button Text="Editar tarea" Command="{Binding EditarTareaCommand }" BackgroundColor="Green" VerticalOptions="Center" Margin="5"/>
+        <Button Text="Borrar tarea" Command="{Binding EliminarTareaCommand }" BackgroundColor="Red" VerticalOptions="Center" Margin="5"/>
+    </StackLayout>
+</ContentPage>
