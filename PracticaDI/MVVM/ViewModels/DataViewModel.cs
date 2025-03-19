@@ -44,19 +44,21 @@ namespace PracticaDI.MVVM.ViewModels
                 return;
             }
 
+            // Pedir nuevo nombre
             string nuevoNombre = await Application.Current.MainPage.DisplayPromptAsync(
                 "Editar Tarea",
                 "Ingresa el nuevo nombre de la tarea:",
                 initialValue: TareaSeleccionada.Nombre);
 
-            if (!string.IsNullOrWhiteSpace(nuevoNombre))
-            {
-                TareaSeleccionada.Nombre = nuevoNombre;
-            }
-            else
+            // Validar que no esté vacío
+            if (string.IsNullOrWhiteSpace(nuevoNombre))
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "El nombre de la tarea no puede estar vacío.", "OK");
+                return;
             }
+
+            TareaSeleccionada.Nombre = null;
+            TareaSeleccionada.Nombre = nuevoNombre;
         }
 
 
