@@ -16,7 +16,7 @@ namespace PracticaDI.MVVM.Models
 
         public string Nombre
         {
-            get => _nombre; // Devuelve el valor actual de _nombre
+            get => _nombre;
             set
             {
                 if (_nombre != value) // Solo actualiza si el valor realmente cambia
